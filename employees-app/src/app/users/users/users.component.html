@@ -1,0 +1,32 @@
+<form class="row-cols-1" [formGroup]="userForm" (ngSubmit)="createNewUser()">
+  <div class="col-md-3">
+  <div class="form-group">
+    <label for="userUsernameEl">Username</label>
+    <input type="text" class="form-control" id="userUsernameEl"  placeholder="Enter Username" formControlName="userUserName">
+  </div>
+  <div class="form-group">
+    <label for="userPasswordEl">Password</label>
+    <input type="password" class="form-control" id="userPasswordEl" placeholder="Password" formControlName="userPassword">
+  </div>
+  <div class="form-group">
+    <label for="userDescriptionEl">Description</label>
+    <input type="text" class="form-control" id="userDescriptionEl" placeholder="Enter a short description" formControlName="userDescription">
+  </div>
+  <div class="form-group">
+    <label for="userBirthDateEl">Birth Date</label>
+    <input type="date" class="form-control" id="userBirthDateEl" placeholder="Enter your Birth Date" formControlName="userBirthDate">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+  </div>
+</form>
+
+<div class="card" style="width: 18rem;" *ngFor="let item of users">
+  <img src="https://robohash.org/{{item.userName}}.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{item.userName}}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <p class="card-text">{{item.age}}</p>
+    <p class="card-text">{{item.birthDate.toLocaleDateString() }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
